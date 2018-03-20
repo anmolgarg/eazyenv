@@ -1,7 +1,7 @@
 # eazyenv
 ##### _Cruisin' down the street in my x86\_64_
 
-Eazyenv allows you to _easily_ create a fresh linux and python data science _environment_ on any docker enabled machine. The following commands create a linux container with Anaconda 3, Spark, a Jupyter lab/notebook server, a Python 3.6 kernel kernel with up-to-date pydata stack and a Python 2.7 with minimal pydata stack.
+Eazyenv allows you to _easily_ create a fresh linux and python data science _environment_ on any docker enabled machine. The following commands create a linux container with Anaconda 3, Spark, a Jupyter lab/notebook server, a Python 3.6 kernel with the full pydata stack and a Python 2.7 kernel with numpy.
 
 
 ## How to run
@@ -23,7 +23,7 @@ Access jupyter server at http://[host_address]:[port]
 ## Security
 All jupyter servers must be password protected with a hashed password e.g. `sha1:739c7b2c8795:705ea47498297a1aa6b3befd9ce35581c54b33db`.
 
-To create a password, use the [jupyter notebook python API](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#preparing-a-hashed-password). If you need help with this, contact anmolgarg. If no password provided when running `start-lab.sh`, you will be locked out.
+To create a password, use the [jupyter notebook python API](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#preparing-a-hashed-password). If no password provided when running `start-lab.sh`, you will be locked out.
 <br><br>
 
 ## Do you want more
@@ -32,6 +32,6 @@ To create a password, use the [jupyter notebook python API](https://jupyter-note
 <br><br>
 
 ## notes
-- Check currently running containers by running `docker ps`. Do not repeat ports.
-- Can modify scripts/install_requirements for system or conda libraries and scripts/requirements for pip libraries for given project before running bash start or run scripts. Can also install after starting by opening a terminal.
-- Enter container, if needed, by running `docker exec -it [lab containter] bash` and exit by running `exit`
+- Can modify scripts/install_requirements for system or conda libraries and scripts/requirements for pypi libraries for given project before running bash start-lab
+- Can add-to or build new python environments at will. see project/scripts/create_conda_env
+- Can enter container, named [project_name]-LAB-[port], by running `docker exec -it container_name bash` and exit by running `exit`
